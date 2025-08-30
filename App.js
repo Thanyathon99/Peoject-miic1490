@@ -9,22 +9,26 @@ import Login_teacher from "./src/Login/Login_teacher";
 function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
+      <Image
+        source={require("./assets/rotation.png")}
+        style={{ width: 100, height: 100 }}
+      />
       <TouchableOpacity
-        style={styles.button}
+        style={[styles.button, { backgroundColor: "#7c7c7cff" }]}
         onPress={() => navigation.navigate("StudentLogin")}
       >
         <Text style={styles.text}>Login For Student</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
-        style={styles.button}
+        style={[styles.button, { backgroundColor: "#7c7c7cff" }]}
         onPress={() => navigation.navigate("TeacherLogin")}
       >
         <Text style={styles.text}>Login For Teacher</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
-        style={styles.button}
+        style={[styles.button, { backgroundColor: "#7c7c7cff" }]}
         onPress={() => navigation.navigate("AdminLogin")}
       >
         <Text style={styles.text}>Login For Admin</Text>
@@ -46,24 +50,29 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#ffffff",
+    backgroundColor: "#f5f5f5",
+    padding: 20,
   },
   button: {
-    width: 200,
-    paddingVertical: 14,
-    borderRadius: 25, //
+    width: 220,
+    paddingVertical: 15,
+    borderRadius: 30,
     alignItems: "center",
-    marginVertical: 10,
+    marginVertical: 12,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5,
   },
   text: {
-    color: "#000000ff",
-    fontSize: 16,
+    color: "#fff",
+    fontSize: 18,
     fontWeight: "bold",
   },
 });

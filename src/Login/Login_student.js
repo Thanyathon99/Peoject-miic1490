@@ -22,18 +22,21 @@ export default function Login_student() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>🔑 Login</Text>
+    
+      <Text style={styles.title}>เข้าสู่ระบบสำหรับนักเรียน</Text>
 
+      <Text style={styles.label}>UserName</Text>
       <TextInput
         style={styles.input}
-        placeholder="Username"
+        placeholder="Enter Your Username"
         value={username}
         onChangeText={setUsername}
       />
 
+      <Text style={styles.label}>PassWord</Text>
       <TextInput
         style={styles.input}
-        placeholder="Password"
+        placeholder="Enter Your Password"
         value={password}
         secureTextEntry
         onChangeText={setPassword}
@@ -57,11 +60,21 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: "bold",
+    fontFamily: "sans-serif",
     marginBottom: 40,
     color: "#333",
   },
+  label: {
+    fontSize: 16,
+    fontWeight: "500",
+    color: "#000000ff",
+    marginBottom: 8,
+    marginLeft: 5,
+    //alignSelf: "flex-start",
+    width: "40%",
+  },
   input: {
-    width: "100%",
+    width: "40%",
     height: 50,
     borderWidth: 1,
     borderColor: "#ccc",
@@ -71,7 +84,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   button: {
-    width: "100%",
+    width: "10%",
     height: 50,
     backgroundColor: "#4CAF50",
     borderRadius: 10,

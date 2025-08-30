@@ -26,7 +26,7 @@ export default function Login_teacher() {
 
       <TextInput
         style={styles.input}
-        placeholder="Username"
+        placeholder="Enter Your Username"
         value={username}
         onChangeText={setUsername}
       />

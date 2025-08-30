@@ -22,6 +22,10 @@ export default function Login_addmin() {
 
   return (
     <View style={styles.container}>
+      <Image
+        source={require("./assets/schoolbag.png")}
+        style={{ width: 100, height: 100 }}
+      />
       <Text style={styles.title}>🔑 Login</Text>
 
       <TextInput
