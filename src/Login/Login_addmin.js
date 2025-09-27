@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   Alert,
+  Image,
 } from "react-native";
 
 export default function Login_addmin() {
@@ -22,10 +23,7 @@ export default function Login_addmin() {
 
   return (
     <View style={styles.container}>
-      <Image
-        source={require("./assets/schoolbag.png")}
-        style={{ width: 100, height: 100 }}
-      />
+      
       <Text style={styles.title}>🔑 Login</Text>
 
       <TextInput
@@ -91,5 +89,9 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 18,
     fontWeight: "bold",
+  },
+  logo: {
+    width: 150,
+    height: 150,
   },
 });

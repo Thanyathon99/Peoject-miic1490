@@ -8,13 +8,13 @@ import {
   Alert,
 } from "react-native";
 
-export default function Login_student() {
+export default function LoginStudent({ navigation }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    if (username === "admin" && password === "1234") {
-      Alert.alert("✅ Login สำเร็จ", `ยินดีต้อนรับคุณ ${username}`);
+    if (username === "student" && password === "1234") {
+      navigation.replace("Attendance", { user: username });
     } else {
       Alert.alert("❌ Login ไม่สำเร็จ", "กรุณาตรวจสอบ Username/Password");
     }
@@ -22,83 +22,72 @@ export default function Login_student() {
 
   return (
     <View style={styles.container}>
-    
       <Text style={styles.title}>เข้าสู่ระบบสำหรับนักเรียน</Text>
 
-      <Text style={styles.label}>UserName</Text>
+      <Text style={styles.label}>Username</Text>
       <TextInput
         style={styles.input}
-        placeholder="Enter Your Username"
         value={username}
         onChangeText={setUsername}
+        placeholder="กรอก Username"
       />
 
-      <Text style={styles.label}>PassWord</Text>
+      <Text style={styles.label}>Password</Text>
       <TextInput
         style={styles.input}
-        placeholder="Enter Your Password"
         value={password}
         secureTextEntry
         onChangeText={setPassword}
+        placeholder="กรอก Password"
       />
 
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>เข้าสู่ระบบ</Text>
-      </TouchableOpacity>
+      <View style={styles.row}>
+        <TouchableOpacity
+          style={styles.cancelBtn}
+          onPress={() => navigation.goBack()}
+        >
+          <Text style={styles.btnText}>Cancel ✖️</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.loginBtn} onPress={handleLogin}>
+          <Text style={styles.btnText}>Login ✔️</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 20,
-    backgroundColor: "#f5f5f5",
-  },
+  container: { flex: 1, padding: 20, justifyContent: "center" },
   title: {
-    fontSize: 28,
+    fontSize: 22,
     fontWeight: "bold",
-    fontFamily: "sans-serif",
-    marginBottom: 40,
-    color: "#333",
+    textAlign: "center",
+    marginBottom: 30,
   },
-  label: {
-    fontSize: 16,
-    fontWeight: "500",
-    color: "#000000ff",
-    marginBottom: 8,
-    marginLeft: 5,
-    //alignSelf: "flex-start",
-    width: "40%",
-  },
+  label: { fontSize: 16, marginVertical: 5 },
   input: {
-    width: "40%",
-    height: 50,
     borderWidth: 1,
     borderColor: "#ccc",
-    borderRadius: 10,
-    paddingHorizontal: 15,
-    marginBottom: 20,
-    backgroundColor: "#fff",
+    borderRadius: 8,
+    padding: 10,
+    marginBottom: 15,
+    backgroundColor: "#eee",
   },
-  button: {
-    width: "10%",
-    height: 50,
-    backgroundColor: "#4CAF50",
-    borderRadius: 10,
-    justifyContent: "center",
+  row: { flexDirection: "row", justifyContent: "space-between", marginTop: 20 },
+  cancelBtn: {
+    backgroundColor: "red",
+    padding: 12,
+    borderRadius: 8,
+    width: "45%",
     alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
-    elevation: 3,
   },
-  buttonText: {
-    color: "#fff",
-    fontSize: 18,
-    fontWeight: "bold",
+  loginBtn: {
+    backgroundColor: "green",
+    padding: 12,
+    borderRadius: 8,
+    width: "45%",
+    alignItems: "center",
   },
+  btnText: { color: "#fff", fontSize: 16, fontWeight: "bold" },
 });
