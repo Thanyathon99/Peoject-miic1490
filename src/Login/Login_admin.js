@@ -1,14 +1,22 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, Alert } from "react-native";
-import styles from "../Styles/Styles_log"; // 👉 import styles ที่คุณแยกไว้
+import styles from "../Styles/Styles_log";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  Alert,
+  Image,
+} from "react-native";
 
-export default function Login_teacher({ navigation }) {
+export default function Login_addmin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    if (username === "teacher" && password === "1234") {
-      navigation.replace("DashboardTeacher", { user: username });
+    if (username === "admin" && password === "1234") {
+      navigation.replace("DashboardAdmin", { user: username });
     } else {
       Alert.alert("❌ Login ไม่สำเร็จ", "กรุณาตรวจสอบ Username/Password");
     }
@@ -16,11 +24,11 @@ export default function Login_teacher({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>🔑 เข้าสู่ระบบครู</Text>
+      <Text style={styles.title}>🔑 Login</Text>
 
       <TextInput
         style={styles.input}
-        placeholder="Enter Your Username"
+        placeholder="Username"
         value={username}
         onChangeText={setUsername}
       />
@@ -34,7 +42,7 @@ export default function Login_teacher({ navigation }) {
       />
 
       <TouchableOpacity style={styles.loginBtn} onPress={handleLogin}>
-        <Text style={styles.btnText}>เข้าสู่ระบบ</Text>
+        <Text style={styles.buttonText}>เข้าสู่ระบบ</Text>
       </TouchableOpacity>
     </View>
   );

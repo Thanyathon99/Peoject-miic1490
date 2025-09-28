@@ -1,25 +1,18 @@
 import React from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  ScrollView,
-} from "react-native";
+import styles from "../Styles/Styles_dash-stu";
+import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 
-export default function AttendanceScreen({ route }) {
+export default function Dashboard_stu({ route }) {
   const { user } = route.params || {};
 
   return (
     <ScrollView style={styles.container}>
-      {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.headerText}>รหัส 0000000111</Text>
+        <Text style={styles.headerText}>รหัส {user || "0000000111"}</Text>
         <Text style={styles.headerText}>ชื่อ ตั้งใจ เรียนนะ</Text>
         <Text style={styles.headerText}>ชั้นปีการศึกษา 2/2558</Text>
       </View>
 
-      {/* Tabs */}
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -46,7 +39,6 @@ export default function AttendanceScreen({ route }) {
         <Text style={styles.statusText}>สถานะ: เข้าเรียนแล้ว</Text>
       </View>
 
-      {/* Detail */}
       <View style={styles.detail}>
         <Text>วันที่และเวลา ณ ขณะลงชื่อ</Text>
         <Text>รหัสวิชา วิชา / รายวิชา</Text>
@@ -56,7 +48,6 @@ export default function AttendanceScreen({ route }) {
         <Text>ชื่อ - สกุล</Text>
       </View>
 
-      {/* Buttons */}
       <TouchableOpacity style={styles.actionBtn}>
         <Text>แบบฝึกหัด</Text>
       </TouchableOpacity>
@@ -66,41 +57,3 @@ export default function AttendanceScreen({ route }) {
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#ddd", padding: 10 },
-  header: { alignItems: "center", marginBottom: 10 },
-  headerText: { fontSize: 14, fontWeight: "bold" },
-  tabs: { flexDirection: "row", marginVertical: 10 },
-  tab: {
-    backgroundColor: "#eee",
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    borderRadius: 6,
-    marginRight: 6,
-  },
-  activeTab: { backgroundColor: "#cce5ff" },
-  statusBox: {
-    backgroundColor: "green",
-    padding: 10,
-    borderRadius: 6,
-    alignItems: "center",
-    marginVertical: 10,
-  },
-  statusText: { color: "#fff", fontWeight: "bold" },
-  detail: {
-    backgroundColor: "#f2f2f2",
-    padding: 10,
-    borderRadius: 6,
-    marginBottom: 15,
-  },
-  actionBtn: {
-    backgroundColor: "#fff",
-    borderWidth: 1,
-    borderColor: "#333",
-    borderRadius: 6,
-    padding: 10,
-    alignItems: "center",
-    marginVertical: 5,
-  },
-});
