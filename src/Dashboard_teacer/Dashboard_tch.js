@@ -10,7 +10,7 @@ import {
 } from "react-native";
 
 export default function Dashboard_teacher({ route }) {
-  const { user } = route.params || {};
+  const { user } = route?.params || {};
 
   return (
     <ScrollView style={styles.container}>

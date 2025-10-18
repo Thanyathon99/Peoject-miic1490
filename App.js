@@ -8,7 +8,7 @@ import Login_teacher from "./src/Login/Login_teacher";
 import Login_admin from "./src/Login/Login_admin";
 
 import Dashboard_stu from "./src/Dashboard_student/Dashboard_stu";
-import Dashboard_teacher from "./src/Dashboard_teacher/Dashboard_tch";
+import Dashboard_teacher from "./src/Dashboard_teacer/Dashboard_tch";
 import Dashboard_admin from "./src/Dashboard_admin/Dashboard_add";
 
 import styles from "./src/Styles/Styles_app";
