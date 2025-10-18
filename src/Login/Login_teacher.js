@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, Alert } from "react-native";
-import styles from "../Styles/Styles_log"; // 👉 import styles ที่คุณแยกไว้
+import { View, Text, TextInput, Pressable, Alert } from "react-native";
+import styles from "../Styles/Styles_log";
 
 export default function Login_teacher({ navigation }) {
   const [username, setUsername] = useState("");
@@ -16,26 +16,27 @@ export default function Login_teacher({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>🔑 เข้าสู่ระบบครู</Text>
-
+      <Text style={styles.title}>🔑 Login (Teacher)</Text>
       <TextInput
         style={styles.input}
-        placeholder="Enter Your Username"
+        placeholder="Username"
         value={username}
         onChangeText={setUsername}
+        autoCapitalize="none"
       />
-
       <TextInput
         style={styles.input}
         placeholder="Password"
         value={password}
-        secureTextEntry
         onChangeText={setPassword}
+        secureTextEntry
       />
-
-      <TouchableOpacity style={styles.loginBtn} onPress={handleLogin}>
+      <Pressable
+        onPress={handleLogin}
+        style={({ pressed }) => [styles.loginBtn, pressed && { opacity: 0.9 }]}
+      >
         <Text style={styles.btnText}>เข้าสู่ระบบ</Text>
-      </TouchableOpacity>
+      </Pressable>
     </View>
   );
 }

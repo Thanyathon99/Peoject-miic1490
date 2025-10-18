@@ -1,16 +1,8 @@
 import React, { useState } from "react";
+import { View, Text, TextInput, Pressable, Alert } from "react-native";
 import styles from "../Styles/Styles_log";
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  StyleSheet,
-  Alert,
-  Image,
-} from "react-native";
 
-export default function Login_addmin() {
+export default function Login_admin({ navigation }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -24,11 +16,12 @@ export default function Login_addmin() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>🔑 Login</Text>
+      <Text style={styles.title}>🔑 Login (Admin)</Text>
 
       <TextInput
         style={styles.input}
         placeholder="Username"
+        autoCapitalize="none"
         value={username}
         onChangeText={setUsername}
       />
@@ -36,14 +29,17 @@ export default function Login_addmin() {
       <TextInput
         style={styles.input}
         placeholder="Password"
-        value={password}
         secureTextEntry
+        value={password}
         onChangeText={setPassword}
       />
 
-      <TouchableOpacity style={styles.loginBtn} onPress={handleLogin}>
-        <Text style={styles.buttonText}>เข้าสู่ระบบ</Text>
-      </TouchableOpacity>
+      <Pressable
+        onPress={handleLogin}
+        style={({ pressed }) => [styles.loginBtn, pressed && { opacity: 0.9 }]}
+      >
+        <Text style={styles.btnText}>เข้าสู่ระบบ</Text>
+      </Pressable>
     </View>
   );
 }
